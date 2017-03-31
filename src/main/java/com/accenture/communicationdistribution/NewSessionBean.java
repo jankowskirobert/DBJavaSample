@@ -22,12 +22,10 @@ import javax.persistence.PersistenceContextType;
  * @author r.jankowski
  */
 @Stateful
-//@StatefulTimeout(unit = TimeUnit.MINUTES,
-//        value = 20)
+@StatefulTimeout(unit = TimeUnit.MINUTES,
+        value = 20)
 public class NewSessionBean implements IBean {
 
-//    @PersistenceContext
-//    private 
     private String data = "D: ";
 
     public NewSessionBean() {
@@ -36,11 +34,9 @@ public class NewSessionBean implements IBean {
 
     @Override
     public String sayIt(String message) {
-//        EntityManager 
-       EntityManager entityManager = getEntityManager();
+        EntityManager entityManager = getEntityManager();
         try {
             Emply en = new Emply();
-
             en.setName("asf");
             en.setLastName("asf");
             en.setJob("asdas");
@@ -48,15 +44,12 @@ public class NewSessionBean implements IBean {
                 entityManager.getTransaction().begin();
                 entityManager.persist(en);
                 entityManager.getTransaction().commit();
-
-//                entityManager.createQuery("Select c from NewEntity as c");
             }
             System.out.println(" HERE");
         } catch (NullPointerException ex) {
             System.err.println(ex);
         } finally {
             entityManager.close();
-//            entityManager.
         }
         return data += message;
     }

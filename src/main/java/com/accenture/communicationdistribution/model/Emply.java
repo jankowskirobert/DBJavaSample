@@ -26,17 +26,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "jpatest")
 @XmlRootElement
-//@NamedQueries({
-//    @NamedQuery(name = "NewEntity.findAll",
-//            query = "SELECT n FROM NewEntity n")
-//    , @NamedQuery(name = "NewEntity.findById",
-//            query = "SELECT n FROM NewEntity n WHERE n.id = :id")
-//    , @NamedQuery(name = "NewEntity.findByName",
-//            query = "SELECT n FROM NewEntity n WHERE n.name = :name")
-//    , @NamedQuery(name = "NewEntity.findByLastName",
-//            query = "SELECT n FROM NewEntity n WHERE n.lastName = :lastName")
-//    , @NamedQuery(name = "NewEntity.findByJob",
-//            query = "SELECT n FROM NewEntity n WHERE n.job = :job")})
 public class Emply implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -134,5 +123,5 @@ public class Emply implements Serializable {
     public String toString() {
         return "com.accenture.communicationdistribution.model.NewEntity[ id=" + id + " ]";
     }
-    
+
 }
