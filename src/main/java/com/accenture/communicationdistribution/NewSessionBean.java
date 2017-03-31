@@ -26,18 +26,18 @@ import javax.persistence.PersistenceContextType;
 //        value = 20)
 public class NewSessionBean implements IBean {
 
-//    @PersistenceContext(
-//            unitName = "pure",
-//            name = "pure")
+//    @PersistenceContext
+//    private 
     private String data = "D: ";
 
     public NewSessionBean() {
-        
+
     }
 
     @Override
     public String sayIt(String message) {
-        EntityManager entityManager = getEntityManager();
+//        EntityManager 
+       EntityManager entityManager = getEntityManager();
         try {
             Emply en = new Emply();
 
@@ -45,13 +45,19 @@ public class NewSessionBean implements IBean {
             en.setLastName("asf");
             en.setJob("asdas");
             if (entityManager != null && entityManager.isOpen()) {
-                entityManager.createQuery("Select c from NewEntity as c");
+                entityManager.getTransaction().begin();
+                entityManager.persist(en);
+                entityManager.getTransaction().commit();
+
+//                entityManager.createQuery("Select c from NewEntity as c");
             }
             System.out.println(" HERE");
         } catch (NullPointerException ex) {
             System.err.println(ex);
         } finally {
-        entityManager.close();}
+            entityManager.close();
+//            entityManager.
+        }
         return data += message;
     }
 
