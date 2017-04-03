@@ -33,17 +33,18 @@ public class NewSessionBean implements IBean {
     }
 
     @Override
-    public String sayIt(String message) {
+    public boolean addEmployee(String name, String lastName, String job) {
         EntityManager entityManager = getEntityManager();
         try {
             Emply en = new Emply();
-            en.setName("asf");
-            en.setLastName("asf");
-            en.setJob("asdas");
+            en.setName(name);
+            en.setLastName(lastName);
+            en.setJob(job);
             if (entityManager != null && entityManager.isOpen()) {
                 entityManager.getTransaction().begin();
                 entityManager.persist(en);
                 entityManager.getTransaction().commit();
+                return true;
             }
             System.out.println(" HERE");
         } catch (NullPointerException ex) {
@@ -51,7 +52,7 @@ public class NewSessionBean implements IBean {
         } finally {
             entityManager.close();
         }
-        return data += message;
+        return false;
     }
 
     @Override

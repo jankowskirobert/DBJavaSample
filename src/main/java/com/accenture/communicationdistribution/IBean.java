@@ -14,7 +14,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface IBean {
-    public String sayIt(String msg); 
+    public boolean addEmployee(String name, String lastName, String job); 
     public Emply getEmployee(int id);
     
 }

@@ -32,6 +32,10 @@ public class MainPage {
         return message;
     }
     public void move() {
-        message += bean.sayIt("["+r.nextInt()+"]");
+        if (bean.addEmployee("test", "test2", "test3")){
+            message = "PASS";
+        } else {
+            message = "FAIL";
+        }
     }
 }
