@@ -28,7 +28,7 @@ public class MainPage {
     String message = "TEST ";
      final Random r = new Random(99);
     public String getMessage(){       
-        message = bean.getMsg();
+        message = bean.getEmployee(1).toString();
         return message;
     }
     public void move() {

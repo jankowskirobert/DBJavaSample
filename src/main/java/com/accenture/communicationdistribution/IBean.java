@@ -5,6 +5,7 @@
  */
 package com.accenture.communicationdistribution;
 
+import com.accenture.communicationdistribution.model.Emply;
 import javax.ejb.Local;
 
 /**
@@ -14,5 +15,6 @@ import javax.ejb.Local;
 @Local
 public interface IBean {
     public String sayIt(String msg); 
-    public String getMsg();
+    public Emply getEmployee(int id);
+    
 }

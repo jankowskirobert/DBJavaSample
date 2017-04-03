@@ -55,8 +55,19 @@ public class NewSessionBean implements IBean {
     }
 
     @Override
-    public String getMsg() {
-        return data;
+    public Emply getEmployee(int id) {
+        EntityManager entityManager = getEntityManager();
+        Emply emp = null;
+        try {
+            if (entityManager != null && entityManager.isOpen()) {
+                emp = entityManager.find(Emply.class, id);
+            }
+        } catch (NullPointerException ex) {
+            System.err.println(ex);
+        } finally {
+            entityManager.close();
+        }
+        return emp;
     }
     private EntityManagerFactory emf;
 

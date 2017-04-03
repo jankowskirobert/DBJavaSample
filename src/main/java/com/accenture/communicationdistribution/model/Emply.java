@@ -121,7 +121,7 @@ public class Emply implements Serializable {
 
     @Override
     public String toString() {
-        return "com.accenture.communicationdistribution.model.NewEntity[ id=" + id + " ]";
+        return "Emply{" + "id=" + id + ", name=" + name + ", lastName=" + lastName + ", job=" + job + '}';
     }
 
 }
