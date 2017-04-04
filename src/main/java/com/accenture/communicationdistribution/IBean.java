@@ -5,7 +5,8 @@
  */
 package com.accenture.communicationdistribution;
 
-import com.accenture.communicationdistribution.model.Emply;
+
+import com.accenture.communicationdistribution.model.RssMessages;
 import javax.ejb.Local;
 
 /**
@@ -15,6 +16,6 @@ import javax.ejb.Local;
 @Local
 public interface IBean {
     public boolean addEmployee(String name, String lastName, String job); 
-    public Emply getEmployee(int id);
+    public RssMessages getEmployee(int id);
     
 }

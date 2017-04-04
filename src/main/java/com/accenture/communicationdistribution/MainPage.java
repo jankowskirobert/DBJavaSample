@@ -5,16 +5,10 @@
  */
 package com.accenture.communicationdistribution;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Random;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  *
@@ -28,11 +22,11 @@ public class MainPage {
     String message = "TEST ";
      final Random r = new Random(99);
     public String getMessage(){       
-        message = bean.getEmployee(1).toString();
+        message = bean.getEmployee(3).toString();
         return message;
     }
     public void move() {
-        if (bean.addEmployee("test", "test2", "test3")){
+        if (bean.addEmployee("", "test2", "test3")){
             message = "PASS";
         } else {
             message = "FAIL";

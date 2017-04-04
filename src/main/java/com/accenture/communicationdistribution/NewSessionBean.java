@@ -5,7 +5,8 @@
  */
 package com.accenture.communicationdistribution;
 
-import com.accenture.communicationdistribution.model.Emply;
+import com.accenture.communicationdistribution.model.RssMessages;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javax.ejb.Singleton;
 import javax.ejb.Stateful;
@@ -36,10 +37,11 @@ public class NewSessionBean implements IBean {
     public boolean addEmployee(String name, String lastName, String job) {
         EntityManager entityManager = getEntityManager();
         try {
-            Emply en = new Emply();
-            en.setName(name);
-            en.setLastName(lastName);
-            en.setJob(job);
+            RssMessages en = new RssMessages();
+            en.setTitle("Car Accident");
+            en.setLink("https://wp.pl");
+            en.setDescription("Big car accident");
+            en.setPublicationDate(new Date());
             if (entityManager != null && entityManager.isOpen()) {
                 entityManager.getTransaction().begin();
                 entityManager.persist(en);
@@ -56,12 +58,12 @@ public class NewSessionBean implements IBean {
     }
 
     @Override
-    public Emply getEmployee(int id) {
+    public RssMessages getEmployee(int id) {
         EntityManager entityManager = getEntityManager();
-        Emply emp = null;
+        RssMessages emp = null;
         try {
             if (entityManager != null && entityManager.isOpen()) {
-                emp = entityManager.find(Emply.class, id);
+                emp = entityManager.find(RssMessages.class, id);
             }
         } catch (NullPointerException ex) {
             System.err.println(ex);
